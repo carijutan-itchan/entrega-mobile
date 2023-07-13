@@ -5,28 +5,15 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  Text,
-} from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
+import {FC} from 'react';
+import AppNavigation from './navigation/AppNavigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-const App = () => { 
-
-  useEffect(() => { 
-    SplashScreen.hide();
-  }, [])
-
-  return (
-    <>
-      <SafeAreaView>
-        <Text>
-          Chupapi Munyanyo
-        </Text>
-      </SafeAreaView>
-    </>
+const App: FC = () => {
+  return(
+    <SafeAreaProvider>
+      <AppNavigation />
+    </SafeAreaProvider>
   )
 }
 
