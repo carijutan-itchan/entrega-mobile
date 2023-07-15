@@ -4,11 +4,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { LoginScreen } from '../screens/Login';
 import { ShopScreen } from "../screens/Shops";
-// import { Home } from '../screens/Home';
 import { Product } from "../screens/Product";
 import { ShopDetails } from "../screens/Shops/ShopDetails";
-import { SearchBox } from "../components/SearchBox/SearchBox";
-import { TextInput } from "react-native";
+import { Cart } from "../screens/Cart";
+import { Header } from "../components/Header/Header";
 
 
 const Tab = createBottomTabNavigator();
@@ -18,7 +17,7 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={({navigation, route}) => ({
       headerTitle: () => {
-        return <SearchBox searchBoxOnPress={() => navigation.navigate('Login')}/> 
+        return <Header navigation={navigation} />
       },
       tabBarIcon: ({focused, size, color}) => {
         let iconName: string = '';
@@ -60,7 +59,7 @@ const MainNavigation: FC = () => {
         name="Home"
         component={TabNavigator}
         options={{
-          headerShown: false,
+          headerShown: false
         }}
       />
       <Stack.Screen 
@@ -71,6 +70,10 @@ const MainNavigation: FC = () => {
         name="Login" 
         component={LoginScreen}
         />
+      <Stack.Screen 
+        name="Cart" 
+        component={Cart}
+      />
     </Stack.Navigator>
   )
 }

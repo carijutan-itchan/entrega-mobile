@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Pressable, TextInput, View } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 type Props = {
@@ -41,7 +41,7 @@ export const SearchBox: FC<Props> = ({
   }
 
   return(
-    <TouchableOpacity
+    <Pressable
       onPress={searchBoxOnPress}
       style={{
         padding: 6,
@@ -50,7 +50,8 @@ export const SearchBox: FC<Props> = ({
         justifyContent: "center",
         height: 30,
         borderRadius: 8,
-        backgroundColor: "#f5f5f5"
+        backgroundColor: "#f5f5f5",
+        marginRight: 10
       }}
     >
       <View style={{
@@ -65,7 +66,7 @@ export const SearchBox: FC<Props> = ({
         />
         {renderInput()}
       </View>
-    </TouchableOpacity>
+    </Pressable>
 
   );
 }
